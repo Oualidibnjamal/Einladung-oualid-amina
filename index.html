@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hochzeitseinladung – Oualid &amp; Amina</title>
+  <meta property="og:title" content="Hochzeitseinladung – Oualid & Amina 💍">
+  <meta property="og:description" content="Samstag, 30. Oktober 2027 im Festsaal Walima. Berührt das Siegel, um eure Einladung zu öffnen.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#6b1426">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hintergrundmusik & schwebender Ton-Schalter (bleibt auf allen Seiten aktiv) -->
+  <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+  <button type="button" id="music-toggle" class="music-btn hidden" aria-label="Musik an/aus">🔊</button>
+
+  <!-- SCHRITT 1: Empfangs-Siegel mit 3D-Wachssiegel -->
+  <section id="welcome-screen" class="screen">
+    <div class="seal-box">
+      <p class="bismillah-ar" dir="rtl" lang="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+      <p class="bismillah-de">Im Namen Allahs, des Allerbarmers, des Barmherzigen</p>
+      <div class="ornament">✦ ❖ ✦</div>
+      
+      <!-- Platzhalter für die persönliche Gast-Anrede + Familien-Hinweis -->
+      <p id="personal-greeting" class="welcome-sub">Ihr seid herzlich eingeladen</p>
+      <p class="family-intro">Gemeinsam mit unseren Eltern feiern wir die Hochzeit von</p>
+      
+      <h1 class="couple-preview">Oualid <span class="amp">&amp;</span> Amina</h1>
+      
+      <!-- Das 3D-Wachssiegel zum Öffnen -->
+      <div class="seal-wrapper">
+        <button id="open-btn" class="wax-seal-btn" aria-label="Einladung öffnen">
+          <span class="seal-initials">O &amp; A</span>
+        </button>
+        <p class="seal-hint">Siegel berühren, um die Einladung zu öffnen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHRITT 2: Das Video (Spielt deine intro.mp4 in scharfer Original-Auflösung ab) -->
+  <section id="video-screen" class="screen hidden">
+    <div class="video-frame">
+      <video id="intro-video" playsinline muted preload="auto">
+        <source src="intro.mp4" type="video/mp4">
+      </video>
+      <button id="skip-btn" class="skip-btn">Überspringen ⏭</button>
+    </div>
+  </section>
+
+  <!-- SCHRITT 3: Die Einladungskarte zum Runterscrollen -->
+  <main id="invitation-card" class="hidden">
+    <div class="card-frame">
+      
+      <!-- Kopfbereich -->
+      <header class="card-header">
+        <p class="bismillah-ar" dir="rtl" lang="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <p class="bismillah-de">Im Namen Allahs, des Allerbarmers, des Barmherzigen</p>
+        <div class="ornament">✦ ❖ ✦</div>
+      </header>
+
+      <!-- Brautpaar & Koranvers -->
+      <section class="hero-section">
+        <p class="welcome-sub">Mit der Gnade Allahs feiern wir unsere Hochzeit</p>
+        <h1 class="couple-names">Oualid <span class="amp">&amp;</span> Amina</h1>
+        <p class="quran-verse">
+          „Und unter Seinen Zeichen ist dies, dass Er Gattinnen für euch aus euch selber schuf, auf dass ihr Frieden bei ihnen finden möget; und Er hat Zuneigung und Barmherzigkeit zwischen euch gesetzt.“
+          <br><small>(Sure Ar-Rum, Vers 21)</small>
+        </p>
+        <div class="scroll-hint">
+          <span>Für alle Details nach unten scrollen</span>
+          <div class="arrow">↓</div>
+        </div>
+      </section>
+
+      <hr class="gold-divider">
+
+      <!-- 1. Datum & Live-Countdown -->
+      <section class="detail-section reveal">
+        <p class="welcome-sub">Save the Date</p>
+        <h2 class="section-title">Samstag, 30. Oktober 2027</h2>
+        <p class="sub-info">Einlass ab 17:30 Uhr</p>
+
+        <div class="countdown-box">
+          <div class="time-unit"><span id="days">00</span><small>Tage</small></div>
+          <div class="time-unit"><span id="hours">00</span><small>Std</small></div>
+          <div class="time-unit"><span id="minutes">00</span><small>Min</small></div>
+          <div class="time-unit"><span id="seconds">00</span><small>Sek</small></div>
+        </div>
+
+        <button type="button" id="calendar-btn" class="outline-btn calendar-btn">
+          📅 Termin im Kalender speichern
+        </button>
+      </section>
+
+      <hr class="gold-divider">
+
+      <!-- 2. Location -->
+      <section class="detail-section reveal">
+        <p class="welcome-sub">Festsaal &amp; Adresse</p>
+        <h2 class="section-title">Festsaal Walima</h2>
+        <p class="sub-info">Keppentaler Weg 9, 55286 Wörrstadt</p>
+        <p class="parking-hint">🅿️ Kostenfreie Parkplätze direkt am Festsaal vorhanden</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Walima+55286+Wörrstadt" target="_blank" class="outline-btn">📍 Route in Google Maps öffnen</a>
+      </section>
+
+      <hr class="gold-divider">
+
+      <!-- 3. Abendablauf -->
+      <section class="detail-section reveal">
+        <p class="welcome-sub">Programm</p>
+        <h2 class="section-title">Ablauf des Abends</h2>
+        <div class="timeline">
+          <div class="timeline-item"><strong>17:30 Uhr</strong> – Empfang mit marokkanischem Minztee &amp; Gebäck</div>
+          <div class="timeline-item"><strong>19:00 Uhr</strong> – Feierlicher Einzug des Brautpaares (Amariya)</div>
+          <div class="timeline-item"><strong>20:30 Uhr</strong> – Gemeinsames Festmahl</div>
+          <div class="timeline-item"><strong>22:30 Uhr</strong> – Traditionelle Gewänder &amp; Hochzeitstorte</div>
+        </div>
+      </section>
+
+      <hr class="gold-divider">
+
+      <!-- 4. Hinweise & Zusage -->
+      <section class="detail-section reveal">
+        <p class="welcome-sub">Wichtige Hinweise</p>
+        <p class="note-text">
+          👶 Kinder sind bei unserer Feier von Herzen willkommen!<br><br>
+          📵 Wir bitten euch herzlich, während der Feier <strong>keine Fotos oder Videos</strong> vom Brautpaar zu machen, um die Privatsphäre zu wahren.<br><br>
+          💌 Bitte gebt uns bis zum <strong>15. September 2027</strong> kurz Bescheid:
+        </p>
+        
+        <!-- Das interaktive Zusage-Formular -->
+        <div class="rsvp-form">
+          <input type="text" id="guest-name" class="rsvp-input" placeholder="Euer Name (z. B. Familie El Amrani)">
+          
+          <div class="rsvp-row">
+            <select id="guest-status" class="rsvp-input">
+              <option value="zusage">✨ Wir sind gerne dabei!</option>
+              <option value="absage">🤍 Leider verhindert</option>
+            </select>
+
+            <select id="guest-count" class="rsvp-input">
+              <option value="1 Person">1 Person</option>
+              <option value="2 Personen" selected>2 Personen</option>
+              <option value="3 Personen">3 Personen</option>
+              <option value="4 Personen">4 Personen</option>
+              <option value="5 Personen">5 Personen</option>
+            </select>
+          </div>
+
+          <textarea id="guest-message" class="rsvp-input rsvp-textarea" rows="3" placeholder="Eure Segenswünsche oder ein kurzes Dua für uns (optional)..."></textarea>
+
+          <button type="button" id="rsvp-btn" class="gold-btn">Per WhatsApp absenden</button>
+        </div>
+      </section>
+
+      <div class="ornament">✦ ❖ ✦</div>
+      <p class="bismillah-ar" dir="rtl" lang="ar">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
+      <p class="bismillah-de reveal">Möge Allah euch segnen und euch im Guten vereinen.</p>
+
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
